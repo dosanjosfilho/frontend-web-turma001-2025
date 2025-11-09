@@ -5,7 +5,7 @@
 
 .site-header {
   background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-900));
-  color: #fff;
+  color: var(--header-foreground);
   padding: var(--space-2) 0 var(--space-5);
 }
 
@@ -20,7 +20,7 @@
   font-family: var(--font-heading);
   font-size: var(--font-size-lg);
   font-weight: 600;
-  color: #fff;
+  color: var(--header-foreground);
 }
 
 .nav-toggle {
@@ -31,7 +31,7 @@
   display: grid;
   place-items: center;
   background-color: transparent;
-  color: #fff;
+  color: var(--header-foreground);
 }
 
 .nav-toggle .hamburger {
@@ -172,7 +172,7 @@ main {
 }
 
 .section--surface {
-  background: #fff;
+  background: var(--section-bg);
 }
 
 .section-title {
@@ -186,7 +186,7 @@ main {
 }
 
 .surface-card {
-  background: #fff;
+  background: var(--surface-bg);
   border-radius: var(--radius-lg);
   padding: var(--space-4);
   box-shadow: var(--shadow-soft);
@@ -228,4 +228,35 @@ footer section {
 footer a {
   color: inherit;
   text-decoration: underline;
+}
+
+[data-theme='dark'] .site-header {
+  background: linear-gradient(135deg, var(--color-primary-900), #081213);
+}
+
+[data-theme='dark'] .nav-menu {
+  background: rgba(5, 12, 12, 0.95);
+}
+
+[data-theme='contrast'] .site-header {
+  background: #000;
+}
+
+[data-theme='contrast'] .nav-menu {
+  background: #000;
+  color: #fff;
+}
+
+[data-theme='contrast'] .surface-card,
+[data-theme='contrast'] .card,
+[data-theme='contrast'] .metric {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+}
+
+[data-theme='contrast'] .table th,
+[data-theme='contrast'] .table td {
+  border-color: #fff;
+  color: #fff;
 }

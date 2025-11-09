@@ -1,7 +1,11 @@
 (function () {
   const body = document.body;
+  const root = document.documentElement;
   const navToggle = document.querySelector('[data-menu-toggle]');
   const navMenu = document.querySelector('[data-nav-menu]');
+  const themeButtons = document.querySelectorAll('[data-theme-mode]');
+  const THEME_KEY = 'redeviva-theme';
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
   function toggleNav(force) {
     if (!navMenu || !navToggle) return;
@@ -24,6 +28,45 @@
     if (event.matches) {
       toggleNav(false);
     }
+  });
+
+  function applyTheme(theme, { persist = true } = {}) {
+    const resolvedTheme = theme && theme !== 'light' ? theme : 'light';
+    if (resolvedTheme === 'light') {
+      root.removeAttribute('data-theme');
+      if (persist) {
+        localStorage.removeItem(THEME_KEY);
+      }
+    } else {
+      root.setAttribute('data-theme', resolvedTheme);
+      if (persist) {
+        localStorage.setItem(THEME_KEY, resolvedTheme);
+      }
+    }
+    themeButtons.forEach((btn) => {
+      const isActive = btn.dataset.themeMode === resolvedTheme;
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  }
+
+  const storedTheme = localStorage.getItem(THEME_KEY);
+  applyTheme(storedTheme || (prefersDark.matches ? 'dark' : 'light'), {
+    persist: Boolean(storedTheme)
+  });
+
+  prefersDark.addEventListener('change', (event) => {
+    if (!localStorage.getItem(THEME_KEY)) {
+      applyTheme(event.matches ? 'dark' : 'light', { persist: false });
+    }
+  });
+
+  themeButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const mode = btn.dataset.themeMode;
+      const current = root.getAttribute('data-theme') || 'light';
+      const next = current === mode ? 'light' : mode;
+      applyTheme(next);
+    });
   });
 
   document.addEventListener('click', (event) => {

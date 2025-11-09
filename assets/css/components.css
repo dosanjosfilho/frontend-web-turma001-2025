@@ -9,8 +9,8 @@
   font-size: var(--font-size-md);
   border: 1px solid transparent;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  background-color: var(--color-accent-500);
-  color: #1c1f1e;
+  background-color: var(--button-bg);
+  color: var(--button-color);
 }
 
 .button:hover {
@@ -29,8 +29,8 @@
 
 .button--secondary {
   background-color: transparent;
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.5);
+  color: var(--button-secondary-color);
+  border-color: currentColor;
 }
 
 .button--ghost {
@@ -50,20 +50,20 @@
 }
 
 .badge {
-  background-color: rgba(255, 255, 255, 0.18);
-  color: #fff;
+  background-color: var(--badge-bg, rgba(255, 255, 255, 0.18));
+  color: var(--badge-color, #fff);
 }
 
 .tag {
-  background-color: var(--color-primary-300);
-  color: var(--color-primary-900);
+  background-color: var(--tag-bg, var(--color-primary-300));
+  color: var(--tag-color, var(--color-primary-900));
 }
 
 .card {
-  border: 1px solid var(--color-neutral-100);
+  border: 1px solid var(--surface-border);
   border-radius: var(--radius-md);
   padding: var(--space-3);
-  background-color: #fff;
+  background-color: var(--surface-bg);
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
@@ -88,7 +88,7 @@
 
 .metric {
   border-radius: var(--radius-md);
-  background-color: var(--color-neutral-100);
+  background-color: var(--metric-bg);
   padding: var(--space-3);
   text-align: center;
 }
@@ -257,7 +257,7 @@ legend {
 }
 
 .modal__content {
-  background: #fff;
+  background: var(--surface-bg);
   border-radius: var(--radius-lg);
   padding: var(--space-4);
   width: min(520px, 100%);
@@ -273,7 +273,7 @@ legend {
 .swatch {
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid var(--color-neutral-100);
+  border: 1px solid var(--surface-border);
 }
 
 .swatch span {
@@ -297,4 +297,39 @@ legend {
   margin: var(--space-2) 0 0;
   display: grid;
   gap: 0.5rem;
+}
+
+.site-header .button--secondary,
+.site-header .button--ghost {
+  color: var(--header-foreground);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme='dark'] .button--ghost {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--header-foreground);
+}
+
+[data-theme='contrast'] .button--ghost,
+[data-theme='contrast'] .button--secondary {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+[data-theme='contrast'] .badge {
+  --badge-bg: #ffde59;
+  --badge-color: #000;
+}
+
+[data-theme='contrast'] .tag {
+  --tag-bg: transparent;
+  --tag-color: #ffde59;
+  border: 1px solid #ffde59;
+}
+
+[data-theme='contrast'] .alert--info,
+[data-theme='contrast'] .alert--success {
+  border-color: #ffffff;
+  background: #000000;
+  color: #ffffff;
 }

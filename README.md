@@ -16,6 +16,8 @@ frontend-web-turma001-2025/
 ├── index.html          # Página institucional com missão, histórico e contatos
 ├── projetos.html       # Vitrine de projetos, portal do voluntariado e campanhas de captação
 ├── cadastro.html       # Formulário completo com validações e máscaras
+├── docs/
+│   └── release-notes/  # Histórico das releases (ex.: v3.0.0)
 └── assets/
     ├── css/
     │   ├── base.css        # Tokens (cores, tipografia, espaçamentos) e resets
@@ -29,6 +31,9 @@ frontend-web-turma001-2025/
     │   ├── forms.js        # Validação, avisos e salvamento local dos formulários
     │   └── ui.js           # Menu responsivo, dropdowns, modal e toasts
     └── images/             # Ilustrações SVG otimizadas usadas nas três páginas
+├── scripts/build.js    # Pipeline de minificação para gerar artefatos em dist/
+├── package.json        # Scripts npm (build) e metadados do projeto
+└── .gitignore          # Ignora dist/ e node_modules/ no versionamento
 ```
 
 ## Destaques Técnicos
@@ -55,9 +60,44 @@ frontend-web-turma001-2025/
 - **Validação consistente**: `forms.js` verifica CPF, telefone, CEP, estados e textos mínimos, exibe mensagens inline e destaca grupos com erro.
 - **Armazenamento local**: dados do formulário são salvos automaticamente no `localStorage` e rehidratados quando o usuário retorna, garantindo continuidade no preenchimento.
 
+## Entrega IV – Versionamento, Acessibilidade e Deploy
+- **GitFlow documentado**: fluxo `main` + `develop` + branches de feature/hotfix descrito neste README, além de notas de release em `docs/release-notes/v3.0.0.md` e tags semânticas (`v1.x`, `v2.x`, `v3.x`).
+- **Acessibilidade WCAG 2.1**: navegação por teclado testada, roles ARIA em modais/toasts/tabelas, contraste mínimo garantido via tokens e duas variações de cor (modo escuro e alto contraste), além de estado `aria-pressed` nos seletores de tema.
+- **Suporte a leitores de tela**: feedbacks (`aria-live`), `noscript` para SPA e atributos `aria-modal`, `role="status"`, `aria-current` atualizados dinamicamente.
+- **Otimização para produção**: script `npm run build` minifica HTML/CSS/JS, copia SVGs otimizados e gera a pasta `dist/` pronta para o deploy no GitHub Pages.
+- **Documentação profissional**: README consolidado com instruções de build/deploy, seção de acessibilidade, fluxo Git/GitHub e referência às notas de versão.
+- **Release notes**: histórico do que entrou em cada release registrado em [`docs/release-notes/`](docs/release-notes/v3.0.0.md).
+
+### Fluxo de Versionamento e Releases
+1. `main` guarda releases estabilizadas; `develop` concentra o trabalho em andamento.
+2. Cada módulo (ex.: “feature/spa-router”, “feature/a11y-dark-mode”) nasce de `develop` e volta via Pull Request documentado.
+3. Hotfixes emergenciais partem de `main` e retornam para `main` + `develop`.
+4. Releases seguem versionamento semântico (`v3.0.0` = entrega de interatividade + deploy) com changelog em `docs/release-notes/`.
+- Issues/milestones documentam cada entrega no GitHub: abra uma issue por funcionalidade, vincule a uma milestone (ex.: “Entrega IV”) e conclua via Pull Request associado.
+- Pull Requests: utilize mensagens semânticas (ex.: `feat: adicionar modo escuro`) descrevendo o contexto, screenshots e checklist de testes antes do merge.
+
+> Referência: tags `v1.0.0` (estrutura HTML), `v2.0.0` (estilização/layout) e `v3.0.0` (SPA/acessibilidade/deploy). A próxima tag pode ser criada com `git tag -a v3.0.0 -m "Entrega IV"` seguida de `git push origin v3.0.0`.
+
+### Acessibilidade e Modos de Cor
+- Botões “Modo escuro” e “Alto contraste” estão presentes no cabeçalho, usam `aria-pressed` e armazenam preferência no `localStorage`.
+- Tokens CSS são redefinidos para `data-theme="dark"` e `data-theme="contrast"`, garantindo contraste ≥4.5:1, especialmente em formulários, botões e texto primário.
+- Navegação por teclado: todos os controles são `<button>` ou `<a>` com `:focus-visible`, dropdowns podem ser abertos via teclado e o hambúrguer bloqueia o scroll ao estar aberto.
+- Modais e toasts têm `role` + `aria-live`, e o formulário exibe mensagens inline associadas ao campo (estrutura semântica + `aria-live` global).
+
+### Build & Deploy
+1. Instale dependências (nenhuma além do Node.js padrão).
+2. Execute `npm run build` para gerar `dist/` com HTML/CSS/JS minificados e imagens otimizadas.
+3. Publique `dist/` no GitHub Pages ou em qualquer CDN estática (ex.: `gh-pages` apontando para `dist`).
+4. Deploy contínuo: abra um PR de `develop` → `main` após passar por revisão, gere a release/tag e publique o conteúdo de `dist`.
+
+> As imagens permanecem em SVG (vetoriais), portanto já chegam comprimidas. O script de build apenas copia esses arquivos, mantendo-os prontos para CDNs.
+>
+> **Importante:** mantenha o repositório configurado como **público** no GitHub para que a banca consiga validar a entrega.
+
 ## Como Executar
 1. Clone ou baixe o repositório.
-2. Abra `index.html` (ou qualquer página) diretamente no navegador. Não há dependências externas.
+2. Para desenvolvimento rápido, abra `index.html` (ou qualquer página) diretamente no navegador.
+3. Para gerar a versão otimizada de produção, execute `npm run build` (Node 18+) e sirva os arquivos da pasta `dist/`.
 
 ## Validação Recomendada
 - **HTML (W3C)**: acesse [https://validator.w3.org/](https://validator.w3.org/), selecione **Validate by File Upload** e envie cada arquivo `.html`. Corrija avisos, se aparecerem, antes da entrega final.
@@ -65,11 +105,11 @@ frontend-web-turma001-2025/
 - **Desempenho**: execute testes Lighthouse (Mobile) para garantir LCP < 5s com as mídias fornecidas.
 
 ### Validações já executadas
-- `index.html`, `projetos.html` e `cadastro.html` foram verificados via API do W3C (validator.w3.org/nu) retornando **0 erros/avisos** (atualizado após a Entrega III).
+- `index.html`, `projetos.html` e `cadastro.html` foram verificados via API do W3C (validator.w3.org/nu) retornando **0 erros/avisos** (atualizado após a Entrega IV).
 
 ## Publicação
 1. Crie um repositório público no GitHub e envie todos os arquivos mantendo a estrutura apresentada.
-2. (Opcional) Ative o GitHub Pages apontando para a branch principal para ter um link público navegável.
+2. (Opcional) Ative o GitHub Pages apontando para a branch principal e publique o conteúdo de `dist/` (gerado via `npm run build`) para disponibilizar o link navegável.
 3. Inclua o link do repositório e, se houver, do GitHub Pages na submissão da disciplina.
 
 ## Próximos Passos Suggeridos

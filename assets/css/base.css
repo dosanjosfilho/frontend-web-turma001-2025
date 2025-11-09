@@ -15,6 +15,15 @@
   --color-neutral-700: #4a5b59;
   --color-neutral-900: #17211f;
 
+  --surface-bg: #ffffff;
+  --surface-border: rgba(15, 61, 62, 0.08);
+  --metric-bg: #e8f2f1;
+  --section-bg: #ffffff;
+  --header-foreground: #ffffff;
+  --button-bg: var(--color-accent-500);
+  --button-color: #1c1f1e;
+  --button-secondary-color: var(--color-primary-500);
+
   --font-heading: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
   --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --font-size-xs: 0.75rem;
@@ -41,6 +50,10 @@
   --shadow-pop: 0 20px 45px rgba(23, 33, 31, 0.25);
 }
 
+html {
+  background-color: var(--color-neutral-50);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -55,6 +68,72 @@ body {
   color: var(--color-neutral-900);
   background-color: var(--color-neutral-50);
   line-height: 1.6;
+}
+
+[data-theme='dark'] {
+  --color-neutral-50: #0c1715;
+  --color-neutral-100: #132221;
+  --color-neutral-300: #1f3030;
+  --color-neutral-500: #8aa5a2;
+  --color-neutral-700: #d9e8e6;
+  --color-neutral-900: #f5fffd;
+  --color-primary-500: #57cfc0;
+  --color-primary-300: #3a9f96;
+  --color-primary-900: #082020;
+  --color-accent-500: #ffb86b;
+  --color-accent-600: #ff8a65;
+  --surface-bg: #122221;
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --metric-bg: #1a2f2d;
+  --section-bg: #132423;
+  --header-foreground: #f4fffc;
+  --button-bg: #ffb86b;
+  --button-color: #14201f;
+  --button-secondary-color: #f4fffc;
+}
+
+[data-theme='contrast'] {
+  --color-neutral-50: #000000;
+  --color-neutral-100: #000000;
+  --color-neutral-300: #2b2b2b;
+  --color-neutral-500: #c7c7c7;
+  --color-neutral-700: #f4f4f4;
+  --color-neutral-900: #ffffff;
+  --color-primary-500: #ffde59;
+  --color-primary-300: #fff08a;
+  --color-primary-900: #000000;
+  --color-accent-500: #ffde59;
+  --color-accent-600: #fff08a;
+  --surface-bg: #000000;
+  --surface-border: #ffffff;
+  --metric-bg: #000000;
+  --section-bg: #000000;
+  --header-foreground: #ffffff;
+  --button-bg: #ffde59;
+  --button-color: #000000;
+  --button-secondary-color: #ffde59;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-neutral-50: #0c1715;
+    --color-neutral-100: #132221;
+    --color-neutral-300: #1f3030;
+    --color-neutral-500: #8aa5a2;
+    --color-neutral-700: #d9e8e6;
+    --color-neutral-900: #f5fffd;
+    --color-primary-500: #57cfc0;
+    --color-primary-300: #3a9f96;
+    --color-primary-900: #082020;
+    --color-accent-500: #ffb86b;
+    --surface-bg: #122221;
+    --surface-border: rgba(255, 255, 255, 0.08);
+    --metric-bg: #1a2f2d;
+    --section-bg: #132423;
+    --header-foreground: #f4fffc;
+    --button-bg: #ffb86b;
+    --button-color: #14201f;
+  }
 }
 
 img,

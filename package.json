@@ -1,0 +1,22 @@
+{
+  "name": "frontend-web-turma001-2025",
+  "version": "1.0.0",
+  "description": "Projeto acadêmico da disciplina Front-end Web (Turma 001/2025) para criar uma presença digital completa para organizações do terceiro setor. A proposta cobre semântica HTML5, responsividade CSS3, interatividade básica em JavaScript e práticas de acessibilidade, performance e documentação.",
+  "main": "index.js",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dosanjosfilho/frontend-web-turma001-2025.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dosanjosfilho/frontend-web-turma001-2025/issues"
+  },
+  "homepage": "https://github.com/dosanjosfilho/frontend-web-turma001-2025#readme"
+}
