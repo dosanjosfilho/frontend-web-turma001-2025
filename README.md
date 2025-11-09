@@ -2,6 +2,9 @@
 
 Projeto acadêmico da disciplina Front-end Web (Turma 001/2025) para criar uma presença digital completa para organizações do terceiro setor. A proposta cobre semântica HTML5, responsividade CSS3, interatividade básica em JavaScript e práticas de acessibilidade, performance e documentação.
 
+## Sobre o Projeto
+Rede Viva é uma plataforma web front-end desenvolvida para dar visibilidade e infraestrutura digital para ONGs brasileiras, reunindo páginas institucionais, vitrine de projetos e um formulário unificado de engajamento. Este repositório concentra toda a base HTML, CSS e JavaScript necessária para a Entrega I da disciplina, servindo como ponto de partida para evoluções futuras (captação, dashboards e interações dinâmicas).
+
 ## Visão Geral
 - **Contexto**: o terceiro setor brasileiro conta com +820 mil OSCs, mas apenas 30% possuem presença digital adequada. A plataforma Rede Viva busca democratizar ferramentas profissionais para ONGs.
 - **Objetivo**: oferecer páginas institucionais, vitrine de projetos/voluntariado e formulário de cadastro unificado, atendendo às especificações da Entrega I (Fundamentos e Estruturação).
@@ -52,3 +55,6 @@ frontend-web-turma001-2025/
 
 ## Créditos
 Desenvolvido por Eraldo Barbosa dos Anjos Filho para a disciplina Desenvolvimento Front-End Para Web — Turma 001/2025.
+
+## Licença
+Projeto distribuído sob a [licença MIT](LICENSE). Fique à vontade para reutilizar, adaptar e evoluir conforme as necessidades das próximas entregas.
