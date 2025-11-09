@@ -1,0 +1,15 @@
+<svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Voluntários em ação">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#216869" />
+      <stop offset="100%" stop-color="#49a078" />
+    </linearGradient>
+  </defs>
+  <rect width="500" height="360" rx="32" fill="url(#g1)" />
+  <circle cx="130" cy="110" r="70" fill="#f4a259" opacity="0.7" />
+  <circle cx="360" cy="210" r="90" fill="#fff" opacity="0.1" />
+  <path d="M60 300c40-80 120-80 160 0s120 80 160 0c40-80 120-80 160 0" stroke="#fff" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.25" />
+  <text x="50%" y="55%" text-anchor="middle" fill="#fff" font-family="Poppins, sans-serif" font-size="32" font-weight="600">
+    Comunidade em Movimento
+  </text>
+</svg>

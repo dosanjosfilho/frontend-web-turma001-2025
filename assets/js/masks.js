@@ -1,0 +1,46 @@
+const maskers = {
+  cpf(value) {
+    return value
+      .replace(/\D/g, '')
+      .slice(0, 11)
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+  },
+  phone(value) {
+    return value
+      .replace(/\D/g, '')
+      .slice(0, 11)
+      .replace(/(\d{2})(\d)/, '($1) $2')
+      .replace(/(\d{4,5})(\d{4})$/, '$1-$2');
+  },
+  cep(value) {
+    return value
+      .replace(/\D/g, '')
+      .slice(0, 8)
+      .replace(/(\d{5})(\d{3})$/, '$1-$2');
+  }
+};
+
+function applyMask(input, type) {
+  const mask = maskers[type];
+  if (!mask) return;
+  input.addEventListener('input', (event) => {
+    const { selectionStart } = event.target;
+    const maskedValue = mask(event.target.value);
+    event.target.value = maskedValue;
+    event.target.setSelectionRange(selectionStart, selectionStart);
+  });
+}
+
+function initMasks() {
+  document.querySelectorAll('[data-mask]').forEach((input) => {
+    applyMask(input, input.dataset.mask);
+  });
+}
+
+if (document.readyState !== 'loading') {
+  initMasks();
+} else {
+  document.addEventListener('DOMContentLoaded', initMasks);
+}

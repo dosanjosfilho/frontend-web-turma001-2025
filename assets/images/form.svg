@@ -1,0 +1,8 @@
+<svg viewBox="0 0 360 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pessoa preenchendo formulário">
+  <rect width="360" height="240" rx="28" fill="#e3f2ef" />
+  <rect x="70" y="40" width="220" height="160" rx="16" fill="#fff" stroke="#216869" stroke-width="4" />
+  <rect x="100" y="70" width="160" height="16" rx="8" fill="#cfe7e3" />
+  <rect x="100" y="105" width="140" height="16" rx="8" fill="#cfe7e3" />
+  <rect x="100" y="140" width="120" height="16" rx="8" fill="#49a078" opacity="0.6" />
+  <circle cx="180" cy="200" r="28" fill="#f4a259" opacity="0.8" />
+</svg>
