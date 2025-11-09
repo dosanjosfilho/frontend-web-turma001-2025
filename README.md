@@ -17,9 +17,15 @@ frontend-web-turma001-2025/
 ├── projetos.html       # Vitrine de projetos, portal do voluntariado e campanhas de captação
 ├── cadastro.html       # Formulário completo com validações e máscaras
 └── assets/
-    ├── css/styles.css  # Sistema de design responsivo (tokens, grids, componentes)
-    ├── js/masks.js     # Máscaras nativas para CPF, telefone e CEP
-    └── images/         # Ilustrações SVG otimizadas usadas nas três páginas
+    ├── css/
+    │   ├── base.css        # Tokens (cores, tipografia, espaçamentos) e resets
+    │   ├── layout.css      # Leiautes gerais, grid de 12 colunas e containers
+    │   ├── components.css  # Botões, cards, tabelas, formulários, alerts, etc.
+    │   └── utilities.css   # Breakpoints, ajustes responsivos e prefers-reduced-motion
+    ├── js/
+    │   ├── masks.js        # Máscaras nativas para CPF, telefone e CEP
+    │   └── ui.js           # Menu responsivo, dropdowns, modal e toasts
+    └── images/             # Ilustrações SVG otimizadas usadas nas três páginas
 ```
 
 ## Destaques Técnicos
@@ -29,6 +35,13 @@ frontend-web-turma001-2025/
 - **Acessibilidade**: rótulos associados, `aria-label`/`aria-labelledby`, contraste adequado, foco em navegação por teclado e semântica coerente.
 - **SEO/Metadados**: meta descrição, keywords, Open Graph, tema e canonical específicos por página.
 - **Assets otimizados**: SVGs leves com descrições (`role="img"` + `aria-label`).
+
+## Entrega II — Estilização e Leiautes
+- **Design System**: 8+ cores, escala tipográfica em 5 níveis, espaçamentos modulares (8 a 64px), componentes documentados com exemplos de estados (primário, secundário, desabilitado).
+- **CSS Modular**: separação clara entre tokens (`base`), leiautes (grid de 12 colunas + containers), componentes reutilizáveis e utilitários responsivos (5 breakpoints: 480, 640, 768, 1024 e 1280px).
+- **Leiautes avançados**: hero e seções construídas com CSS Grid/Flexbox, `layout-grid` customizado com utilidades `col-span-*`, cards responsivos e tabelas adaptáveis.
+- **Navegação interativa**: menu principal com dropdown (submenu) e versão mobile hambúrguer, incluindo bloqueio de scroll e sincronização automática em mudanças de breakpoint.
+- **Componentes de UI**: badges/tags para categorização, alertas informativos, toast acionado por botão, modal acessível, formulários com feedback visual (`:invalid`) e filtros responsivos.
 
 ## Como Executar
 1. Clone ou baixe o repositório.
@@ -40,7 +53,7 @@ frontend-web-turma001-2025/
 - **Desempenho**: execute testes Lighthouse (Mobile) para garantir LCP < 5s com as mídias fornecidas.
 
 ### Validações já executadas
-- `index.html`, `projetos.html` e `cadastro.html` foram verificados via API do W3C (validator.w3.org/nu) retornando **0 erros/avisos** na data da última atualização deste repositório.
+- `index.html`, `projetos.html` e `cadastro.html` foram verificados via API do W3C (validator.w3.org/nu) retornando **0 erros/avisos** (atualizado após a Entrega II).
 
 ## Publicação
 1. Crie um repositório público no GitHub e envie todos os arquivos mantendo a estrutura apresentada.
