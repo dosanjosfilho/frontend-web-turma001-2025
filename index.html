@@ -25,258 +25,51 @@
     <link rel="stylesheet" href="assets/css/components.css" >
     <link rel="stylesheet" href="assets/css/utilities.css" >
   </head>
-  <body>
+  <body data-initial-route="home">
     <header class="site-header">
       <div class="container">
         <nav class="nav" aria-label="Menu principal">
-          <a class="nav-logo" href="index.html" aria-label="Rede Viva - início">Rede Viva</a>
+          <a class="nav-logo" href="#home" data-route="home" aria-label="Rede Viva - início">Rede Viva</a>
           <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" data-menu-toggle>
             <span class="hamburger" aria-hidden="true"></span>
             <span class="visually-hidden">Abrir menu de navegação</span>
           </button>
           <div class="nav-menu" id="primary-menu" data-nav-menu>
             <ul class="nav-links">
-              <li><a href="index.html" aria-current="page">Início</a></li>
-              <li><a href="projetos.html">Projetos</a></li>
-              <li><a href="cadastro.html">Cadastro</a></li>
+              <li><a href="#home" data-route="home" aria-current="page">Início</a></li>
+              <li><a href="#projects" data-route="projects">Projetos</a></li>
+              <li><a href="#cadastro" data-route="cadastro">Cadastro</a></li>
               <li class="nav-item has-submenu">
                 <button type="button" class="submenu-toggle" aria-expanded="false" data-submenu-toggle>
                   Sobre
                   <span class="submenu-icon" aria-hidden="true"></span>
                 </button>
                 <ul class="submenu" data-submenu>
-                  <li><a href="#missao">Missão e Valores</a></li>
-                  <li><a href="#transparencia">Transparência</a></li>
-                  <li><a href="projetos.html#lista-projetos">Projetos em destaque</a></li>
+                  <li><a href="#home" data-route="home">Missão e Valores</a></li>
+                  <li><a href="#projects" data-route="projects">Transparência</a></li>
+                  <li><a href="#cadastro" data-route="cadastro">Cadastro rápido</a></li>
                 </ul>
               </li>
             </ul>
             <div class="nav-actions">
-              <a class="button button--secondary" href="projetos.html#doacoes">Doar agora</a>
-              <a class="button" href="cadastro.html">Quero participar</a>
+              <a class="button button--secondary" href="#projects" data-route="projects">Doar agora</a>
+              <a class="button" href="#cadastro" data-route="cadastro">Quero participar</a>
             </div>
           </div>
         </nav>
-        <div class="hero">
-          <div class="hero__grid">
-            <div class="hero__content">
-              <p class="badge">+3 milhões de pessoas engajadas</p>
-              <h1 class="hero__title">Transformando impacto social em presença digital</h1>
-              <p>
-                A Rede Viva apoia organizações da sociedade civil a ampliarem alcance, captarem recursos e engajarem voluntários com uma plataforma acessível e profissional.
-              </p>
-              <div class="form-actions" style="margin-top: var(--space-3);">
-                <a class="button" href="projetos.html">Conhecer projetos</a>
-                <a class="button button--secondary" href="#design-system">Ver design system</a>
-              </div>
-            </div>
-            <div class="hero__media">
-              <img src="assets/images/hero-collage.svg" alt="Voluntários participando de ações comunitárias" width="500" height="360" >
-            </div>
-          </div>
-        </div>
       </div>
     </header>
 
     <main>
-      <section class="section section--surface" aria-labelledby="missao">
-        <div class="container">
+      <div id="view-root" aria-live="polite"></div>
+      <noscript>
+        <div class="container" style="padding: var(--space-4) 0;">
           <div class="surface-card">
-            <div class="layout-grid">
-              <div class="col-span-7">
-                <h2 id="missao" class="section-title">Missão, visão e valores</h2>
-                <p class="section-subtitle">Baseamos nosso sistema em colaboração, transparência e tecnologia acessível.</p>
-                <div class="grid-stack">
-                  <article class="card">
-                    <h3>Missão</h3>
-                    <p>Oferecer infraestrutura digital completa para ONGs brasileiras fortalecerem transparência, governança e impacto.</p>
-                  </article>
-                  <article class="card">
-                    <h3>Visão</h3>
-                    <p>Ser referência nacional em plataformas acessíveis para o terceiro setor, conectando projetos, voluntários e doadores.</p>
-                  </article>
-                  <article class="card">
-                    <h3>Valores</h3>
-                    <p>Transparência, inclusão digital, colaboração em rede, responsabilidade socioambiental e inovação aberta.</p>
-                  </article>
-                </div>
-              </div>
-              <div class="col-span-5">
-                <h3 class="section-subtitle">Impacto Mensurável</h3>
-                <ul class="metrics">
-                  <li class="metric">
-                    <strong>120+</strong>
-                    <span>ONGs atendidas</span>
-                  </li>
-                  <li class="metric">
-                    <strong>R$ 5 mi</strong>
-                    <span>Arrecadação em campanhas</span>
-                  </li>
-                  <li class="metric">
-                    <strong>8.500</strong>
-                    <span>Voluntários conectados</span>
-                  </li>
-                  <li class="metric">
-                    <strong>15</strong>
-                    <span>Estados com projetos ativos</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <p>Este site utiliza JavaScript para renderizar o conteúdo. Ative o JavaScript no navegador para visualizar todas as seções.</p>
           </div>
         </div>
-      </section>
-
-      <section class="section" id="design-system" aria-labelledby="design-system-title">
-        <div class="container">
-          <div class="surface-card">
-            <h2 id="design-system-title" class="section-title">Design system Rede Viva</h2>
-            <p class="section-subtitle">Tokens de cor, tipografia e espaçamento garantem consistência em todos os módulos.</p>
-            <div class="layout-grid">
-              <div class="col-span-6">
-                <h3>Paleta de cores</h3>
-                <div class="swatch-grid" role="list">
-                  <div class="swatch" role="listitem">
-                    <span style="background-color: var(--color-primary-500); color: #fff;">Primária 500<br>#1f6f78</span>
-                  </div>
-                  <div class="swatch" role="listitem">
-                    <span style="background-color: var(--color-primary-300);">Primária 300<br>#5ba199</span>
-                  </div>
-                  <div class="swatch" role="listitem">
-                    <span style="background-color: var(--color-primary-900); color: #fff;">Primária 900<br>#0f3d3e</span>
-                  </div>
-                  <div class="swatch" role="listitem">
-                    <span style="background-color: var(--color-accent-500);">Acento 500<br>#f4a259</span>
-                  </div>
-                  <div class="swatch" role="listitem">
-                    <span style="background-color: var(--color-accent-600); color: #fff;">Acento 600<br>#f95f62</span>
-                  </div>
-                  <div class="swatch" role="listitem">
-                    <span style="background-color: var(--color-success-500);">Sucesso<br>#2db36c</span>
-                  </div>
-                  <div class="swatch" role="listitem">
-                    <span style="background-color: var(--color-warning-500);">Alerta<br>#f5c518</span>
-                  </div>
-                  <div class="swatch" role="listitem">
-                    <span style="background-color: var(--color-neutral-300);">Neutro 300<br>#d0dad8</span>
-                  </div>
-                </div>
-              </div>
-              <div class="col-span-6">
-                <h3>Tipografia & Espaçamentos</h3>
-                <div class="typography-scale">
-                  <p style="font-size: var(--font-size-3xl); font-weight: 600;">Display / var(--font-size-3xl)</p>
-                  <p style="font-size: var(--font-size-2xl); font-weight: 600;">Título / var(--font-size-2xl)</p>
-                  <p style="font-size: var(--font-size-xl); font-weight: 600;">Subtítulo / var(--font-size-xl)</p>
-                  <p style="font-size: var(--font-size-lg);">Corpo grande / var(--font-size-lg)</p>
-                  <p style="font-size: var(--font-size-md);">Corpo padrão / var(--font-size-md)</p>
-                  <p>Escala modular: 8, 16, 24, 32, 48 e 64px aplicada a paddings, gaps e margens.</p>
-                </div>
-                <div class="form-actions" role="group" aria-label="Exemplos de botões" style="margin-top: var(--space-3);">
-                  <button class="button" type="button">Primário</button>
-                  <button class="button button--ghost" type="button">Secundário</button>
-                  <button class="button" type="button" disabled>Desabilitado</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--surface" aria-labelledby="transparencia">
-        <div class="container">
-          <div class="surface-card">
-            <h2 id="transparencia" class="section-title">Transparência e governança</h2>
-            <p class="section-subtitle">Publicamos relatórios trimestrais com dados de arrecadação, custos e indicadores de impacto.</p>
-            <div class="layout-grid">
-              <div class="col-span-7">
-                <table class="table" aria-label="Relatórios publicados">
-                  <thead>
-                    <tr>
-                      <th>Período</th>
-                      <th>Tipo de relatório</th>
-                      <th>Indicadores-chave</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>2024 Q4</td>
-                      <td>Impacto Social</td>
-                      <td>87% dos projetos atingiram metas</td>
-                    </tr>
-                    <tr>
-                      <td>2024 Q3</td>
-                      <td>Financeiro</td>
-                      <td>88% dos recursos destinados aos projetos</td>
-                    </tr>
-                    <tr>
-                      <td>2024 Q2</td>
-                      <td>Governança</td>
-                      <td>100% das auditorias concluídas</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="col-span-5">
-                <div class="alert alert--info" role="alert">
-                  <strong>Auditoria independente</strong>
-                  <p>Relatório completo disponível para download em PDF acessível e HTML responsivo.</p>
-                </div>
-                <div class="alert alert--success" role="alert">
-                  <strong>Compliance atualizado</strong>
-                  <p>Protocolos LGPD e políticas de voluntariado revisados em janeiro/2025.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="feedback">
-        <div class="container">
-          <div class="surface-card">
-            <h2 id="feedback" class="section-title">Feedback em tempo real</h2>
-            <p class="section-subtitle">Componentes de alertas, toasts e modais mantêm administradores informados.</p>
-            <div class="layout-grid">
-              <div class="col-span-6">
-                <p>Use notificações instantâneas para confirmar envios de formulários ou novas inscrições.</p>
-                <div class="form-actions" style="margin-top: var(--space-2);">
-                  <button class="button button--ghost" type="button" data-toast-trigger>Mostrar notificações</button>
-                  <button class="button" type="button" data-modal-open="compliance">Ver aviso de compliance</button>
-                </div>
-              </div>
-              <div class="col-span-6">
-                <div class="card">
-                  <h3>Badges e Tags</h3>
-                  <p>Classifique projetos por temas e status.</p>
-                  <div class="card__meta">
-                    <span class="tag">Educação</span>
-                    <span class="tag">Voluntariado</span>
-                    <span class="tag">Captar R$ 50k</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </noscript>
     </main>
-
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" data-modal id="modal-compliance">
-      <div class="modal__content" data-modal-content tabindex="-1">
-        <h3 id="modal-title">Aviso de compliance</h3>
-        <p>Todos os dados coletados passam por revisão semanal e seguem as diretrizes da LGPD. Os voluntários podem solicitar a remoção de dados a qualquer momento.</p>
-        <div class="form-actions" style="margin-top: var(--space-3);">
-          <button class="button button--ghost" type="button" data-modal-close>Fechar</button>
-          <a class="button" href="cadastro.html">Atualizar cadastro</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="toast" role="status" aria-live="polite" data-toast>
-      <p>Inscrição registrada com sucesso. Confira seu e-mail para os próximos passos.</p>
-      <button class="button button--ghost" type="button" data-toast-dismiss aria-label="Fechar notificação">Fechar</button>
-    </div>
 
     <footer aria-label="Informações de contato">
       <section>
@@ -290,6 +83,13 @@
       </section>
     </footer>
 
+    <script>
+      window.__INITIAL_ROUTE__ = document.body.dataset.initialRoute || 'home';
+    </script>
+    <script src="assets/js/templates.js" defer></script>
+    <script src="assets/js/masks.js" defer></script>
+    <script src="assets/js/forms.js" defer></script>
     <script src="assets/js/ui.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
   </body>
 </html>

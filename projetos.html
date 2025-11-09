@@ -25,190 +25,50 @@
     <link rel="stylesheet" href="assets/css/components.css" >
     <link rel="stylesheet" href="assets/css/utilities.css" >
   </head>
-  <body>
+  <body data-initial-route="projects">
     <header class="site-header">
       <div class="container">
         <nav class="nav" aria-label="Menu principal">
-          <a class="nav-logo" href="index.html">Rede Viva</a>
+          <a class="nav-logo" href="#home" data-route="home" aria-label="Rede Viva - início">Rede Viva</a>
           <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" data-menu-toggle>
             <span class="hamburger" aria-hidden="true"></span>
             <span class="visually-hidden">Abrir menu de navegação</span>
           </button>
           <div class="nav-menu" id="primary-menu" data-nav-menu>
             <ul class="nav-links">
-              <li><a href="index.html">Início</a></li>
-              <li><a href="projetos.html" aria-current="page">Projetos</a></li>
-              <li><a href="cadastro.html">Cadastro</a></li>
+              <li><a href="#home" data-route="home">Início</a></li>
+              <li><a href="#projects" data-route="projects">Projetos</a></li>
+              <li><a href="#cadastro" data-route="cadastro">Cadastro</a></li>
               <li class="nav-item has-submenu">
                 <button type="button" class="submenu-toggle" aria-expanded="false" data-submenu-toggle>
                   Recursos
                   <span class="submenu-icon" aria-hidden="true"></span>
                 </button>
                 <ul class="submenu" data-submenu>
-                  <li><a href="#filtros">Filtros inteligentes</a></li>
-                  <li><a href="#lista-projetos">Cards responsivos</a></li>
-                  <li><a href="#doacoes">Campanhas</a></li>
+                  <li><a href="#projects" data-route="projects">Filtros inteligentes</a></li>
+                  <li><a href="#projects" data-route="projects">Cards responsivos</a></li>
+                  <li><a href="#projects" data-route="projects">Campanhas</a></li>
                 </ul>
               </li>
             </ul>
             <div class="nav-actions">
-              <a class="button button--secondary" href="#doacoes">Doar agora</a>
-              <a class="button" href="cadastro.html">Quero participar</a>
+              <a class="button button--secondary" href="#projects" data-route="projects">Doar agora</a>
+              <a class="button" href="#cadastro" data-route="cadastro">Quero participar</a>
             </div>
           </div>
         </nav>
-        <div class="hero">
-          <div class="hero__grid">
-            <div>
-              <p class="badge">Rede de projetos ativos</p>
-              <h1 class="hero__title">Projetos sociais que fortalecem territórios</h1>
-              <p>Explore iniciativas de educação, economia solidária, cultura e sustentabilidade. Participe como voluntário ou apoiador financeiro.</p>
-              <a class="button" href="#doacoes">Quero doar agora</a>
-            </div>
-            <div class="hero__media">
-              <img src="assets/images/projects.svg" alt="Gráfico com indicadores de projetos" width="360" height="240" >
-            </div>
-          </div>
-        </div>
       </div>
     </header>
 
     <main>
-      <section class="section section--surface" aria-labelledby="filtros">
-        <div class="container">
+      <div id="view-root" aria-live="polite"></div>
+      <noscript>
+        <div class="container" style="padding: var(--space-4) 0;">
           <div class="surface-card">
-            <h2 id="filtros" class="section-title">Encontre o projeto ideal</h2>
-            <form class="projects-filter" aria-label="Filtros de busca">
-              <label>
-                <span>Área temática</span>
-                <select>
-                  <option>Todos</option>
-                  <option>Educação</option>
-                  <option>Saúde</option>
-                  <option>Direitos Humanos</option>
-                  <option>Meio ambiente</option>
-                </select>
-              </label>
-              <label>
-                <span>Formato</span>
-                <select>
-                  <option>Híbrido</option>
-                  <option>Remoto</option>
-                  <option>Presencial</option>
-                </select>
-              </label>
-              <label>
-                <span>Região</span>
-                <select>
-                  <option>Nacional</option>
-                  <option>Sudeste</option>
-                  <option>Nordeste</option>
-                  <option>Centro-Oeste</option>
-                  <option>Sul</option>
-                  <option>Norte</option>
-                </select>
-              </label>
-            </form>
+            <p>Ative o JavaScript para consultar os projetos disponíveis.</p>
           </div>
         </div>
-      </section>
-
-      <section class="section" aria-labelledby="lista-projetos">
-        <div class="container">
-          <h2 id="lista-projetos" class="section-title">Projetos sociais em destaque</h2>
-          <div class="grid-stack">
-            <article class="card">
-              <div class="card__meta">
-                <span class="tag">Educação</span>
-                <span class="tag">Tecnologia</span>
-              </div>
-              <h3>Laboratório Cidadão</h3>
-              <p>Programa intensivo de tecnologia para jovens periféricos com foco em empregabilidade.</p>
-              <p><strong>Necessidades:</strong> mentores de programação, notebooks doados.</p>
-              <a class="button" href="cadastro.html">Participar</a>
-            </article>
-            <article class="card">
-              <div class="card__meta">
-                <span class="tag">Meio Ambiente</span>
-                <span class="tag">Economia Solidária</span>
-              </div>
-              <h3>Rede Agroecológica</h3>
-              <p>Fortalece famílias agricultoras com capacitações em produção orgânica e venda direta.</p>
-              <p><strong>Necessidades:</strong> apoio logístico, microcrédito, voluntários em comunicação.</p>
-              <a class="button" href="cadastro.html">Participar</a>
-            </article>
-            <article class="card">
-              <div class="card__meta">
-                <span class="tag">Direitos Humanos</span>
-                <span class="tag">Empreendedorismo</span>
-              </div>
-              <h3>Mulheres em Movimento</h3>
-              <p>Rede de proteção e empreendedorismo para mulheres sobreviventes de violência.</p>
-              <p><strong>Necessidades:</strong> atendimento jurídico, oficinas de finanças e kits de higiene.</p>
-              <a class="button" href="cadastro.html">Participar</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--surface" aria-labelledby="voluntariado">
-        <div class="container">
-          <div class="surface-card">
-            <div class="layout-grid">
-              <div class="col-span-6">
-                <h2 id="voluntariado" class="section-title">Portal do voluntariado</h2>
-                <p>Receba convites personalizados, acompanhe horas dedicadas, emita certificados digitais e compartilhe suas experiências.</p>
-                <ul>
-                  <li>Processo transparente de inscrição e seleção</li>
-                  <li>Trilhas de capacitação on-line</li>
-                  <li>Gamificação para reconhecer engajamento</li>
-                </ul>
-                <a class="button" href="cadastro.html">Quero ser voluntário</a>
-              </div>
-              <div class="col-span-6">
-                <div class="hero__media">
-                  <img src="assets/images/volunteers.svg" alt="Rede de voluntários conectados" width="360" height="240" >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="doacoes" aria-labelledby="capitacao">
-        <div class="container">
-          <div class="surface-card">
-            <h2 id="capitacao" class="section-title">Campanhas de captação</h2>
-            <p class="section-subtitle">Transparência total sobre metas, repasses e prestação de contas. As doações podem ser únicas, recorrentes ou via empresas parceiras.</p>
-            <table class="table" aria-label="Campanhas de arrecadação">
-              <thead>
-                <tr>
-                  <th>Campanha</th>
-                  <th>Meta</th>
-                  <th>Progresso</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Bolsa Educação</td>
-                  <td>R$ 350.000</td>
-                  <td>72% alcançado</td>
-                </tr>
-                <tr>
-                  <td>Fundo Emergencial Amazônia</td>
-                  <td>R$ 500.000</td>
-                  <td>54% alcançado</td>
-                </tr>
-                <tr>
-                  <td>Programa Primeira Infância</td>
-                  <td>R$ 220.000</td>
-                  <td>96% alcançado</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+      </noscript>
     </main>
 
     <footer aria-label="Contato para parcerias">
@@ -218,6 +78,13 @@
       </section>
     </footer>
 
+    <script>
+      window.__INITIAL_ROUTE__ = document.body.dataset.initialRoute || 'projects';
+    </script>
+    <script src="assets/js/templates.js" defer></script>
+    <script src="assets/js/masks.js" defer></script>
+    <script src="assets/js/forms.js" defer></script>
     <script src="assets/js/ui.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
   </body>
 </html>

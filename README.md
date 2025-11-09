@@ -23,7 +23,10 @@ frontend-web-turma001-2025/
     │   ├── components.css  # Botões, cards, tabelas, formulários, alerts, etc.
     │   └── utilities.css   # Breakpoints, ajustes responsivos e prefers-reduced-motion
     ├── js/
+    │   ├── app.js          # Roteador SPA e renderização de templates
+    │   ├── templates.js    # Templates JS das rotas (home, projetos, cadastro)
     │   ├── masks.js        # Máscaras nativas para CPF, telefone e CEP
+    │   ├── forms.js        # Validação, avisos e salvamento local dos formulários
     │   └── ui.js           # Menu responsivo, dropdowns, modal e toasts
     └── images/             # Ilustrações SVG otimizadas usadas nas três páginas
 ```
@@ -35,6 +38,8 @@ frontend-web-turma001-2025/
 - **Acessibilidade**: rótulos associados, `aria-label`/`aria-labelledby`, contraste adequado, foco em navegação por teclado e semântica coerente.
 - **SEO/Metadados**: meta descrição, keywords, Open Graph, tema e canonical específicos por página.
 - **Assets otimizados**: SVGs leves com descrições (`role="img"` + `aria-label`).
+- **SPA e templates**: roteador hash-based (`app.js`) injeta templates JS para cada rota, mantendo estado consistente em todas as páginas HTML.
+- **Validação e armazenamento local**: `forms.js` oferece verificação de consistência com mensagens visuais e persistência automática dos campos no `localStorage`, garantindo feedback claro ao usuário.
 
 ## Entrega II — Estilização e Leiautes
 - **Design System**: 8+ cores, escala tipográfica em 5 níveis, espaçamentos modulares (8 a 64px), componentes documentados com exemplos de estados (primário, secundário, desabilitado).
@@ -42,6 +47,13 @@ frontend-web-turma001-2025/
 - **Leiautes avançados**: hero e seções construídas com CSS Grid/Flexbox, `layout-grid` customizado com utilidades `col-span-*`, cards responsivos e tabelas adaptáveis.
 - **Navegação interativa**: menu principal com dropdown (submenu) e versão mobile hambúrguer, incluindo bloqueio de scroll e sincronização automática em mudanças de breakpoint.
 - **Componentes de UI**: badges/tags para categorização, alertas informativos, toast acionado por botão, modal acessível, formulários com feedback visual (`:invalid`) e filtros responsivos.
+
+## Entrega III – Interatividade e Funcionalidades
+- **SPA básica**: `app.js` controla rotas via hash e injeta templates JS, permitindo que `index.html`, `projetos.html` e `cadastro.html` carreguem a mesma aplicação com rotas específicas.
+- **Sistema de templates**: `templates.js` armazena cada página como função JS reutilizável, facilitando manutenção do design e inclusão de novos módulos.
+- **Manipulação do DOM e eventos**: rendering dinâmico, toasts, modais e menus são recriados a cada navegação, com `ui.js` tratando eventos via delegação.
+- **Validação consistente**: `forms.js` verifica CPF, telefone, CEP, estados e textos mínimos, exibe mensagens inline e destaca grupos com erro.
+- **Armazenamento local**: dados do formulário são salvos automaticamente no `localStorage` e rehidratados quando o usuário retorna, garantindo continuidade no preenchimento.
 
 ## Como Executar
 1. Clone ou baixe o repositório.
@@ -53,7 +65,7 @@ frontend-web-turma001-2025/
 - **Desempenho**: execute testes Lighthouse (Mobile) para garantir LCP < 5s com as mídias fornecidas.
 
 ### Validações já executadas
-- `index.html`, `projetos.html` e `cadastro.html` foram verificados via API do W3C (validator.w3.org/nu) retornando **0 erros/avisos** (atualizado após a Entrega II).
+- `index.html`, `projetos.html` e `cadastro.html` foram verificados via API do W3C (validator.w3.org/nu) retornando **0 erros/avisos** (atualizado após a Entrega III).
 
 ## Publicação
 1. Crie um repositório público no GitHub e envie todos os arquivos mantendo a estrutura apresentada.
